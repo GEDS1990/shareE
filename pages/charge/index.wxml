@@ -1,0 +1,7 @@
+<!--pages/charge/index.wxml-->
+<view class="container">
+    <view class="title">邀请好友扫描二维码</view>
+    <image src="{{erweima}}"></image>
+    <view class="title">复制我的推荐码：8888</view>
+    <button bindtap="sendUrl" class="btn-charge">发生链接给好友</button>
+</view>

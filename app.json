@@ -1,0 +1,21 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/warn/index",
+    "pages/scanresult/index",
+    "pages/billing/index",
+    "pages/my/index",
+    "pages/wallet/index",
+    "pages/Records/index",
+    "pages/charge/index",
+    "pages/jiedan/index",
+    "pages/nearorders/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#b9dd08",
+    "navigationBarTitleText": "ShareE 共享物流",
+    "navigationBarTextStyle":"black"
+  }
+}
