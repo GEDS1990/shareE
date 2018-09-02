@@ -1,4 +1,5 @@
-// pages/my/index.js
+// pages/my/index.js//获取应用实例
+var app = getApp()
 Page({
   data:{
     // 用户信息
@@ -15,7 +16,7 @@ Page({
     // 设置本页导航标题
     wx.setNavigationBarTitle({
       title: '个人中心'
-    })
+    });
     // 获取本地数据-用户信息
     wx.getStorage({
       key: 'userInfo',
@@ -33,6 +34,32 @@ Page({
         })
       }
     });
+  // wx.getUserInfo({
+  //   success(e){
+  //     debugger; 
+  //     app.avatarUrl=e.userInfo.avatarUrl;
+  //     app.nickName=e.userInfo.nickName;
+  //     lock: true;
+  //     debugger;
+  //   }
+  // });
+  },
+
+  onGotUserInfo: function (e) {
+    // console.log(e.detail.errMsg)
+    // console.log(e.detail.userInfo)
+    // console.log(e.detail.rawData)
+    wx.hideLoading();
+    this.setData({
+      userInfo: {
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        nickName: e.detail.userInfo.nickName
+      },
+      // bType: e.detail.bType,
+      // actionText: e.detail.actionText,
+      lock: true
+    });
+
   },
 // 登录或退出登录按钮点击事件
   bindAction: function(){

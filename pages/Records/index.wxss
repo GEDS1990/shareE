@@ -33,7 +33,7 @@
 	margin-top: 40rpx;
 }
 .c-y{
-	color: #b9dd08;
+	color: #191970;
 	padding-top: -5rpx;
 	padding-right: 10rpx;
 }

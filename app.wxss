@@ -4,21 +4,23 @@
 	height: 100vh;
 }
 .title{
-	background-color: #f2f2f2;
+	background-color: #191970;
 	padding: 30rpx 0 30rpx 50rpx;
 	font-size: 28rpx;
-	color: #000;
+	color: #FFFFFF;
 }
 .tapbar{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #fff;
+	background-color: #FFFFFF;
 	padding: 40rpx;
+	color: #191970;
 }
 .btn-charge{
 	width: 90%;
-	background-color: #b9dd08;
+	background-color: #191970;
 	margin: 40rpx auto 30rpx;
 	text-align: center;
+	color: #FFFFFF;
 }

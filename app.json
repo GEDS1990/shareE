@@ -14,8 +14,8 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#b9dd08",
+    "navigationBarBackgroundColor": "#191970",
     "navigationBarTitleText": "ShareE 共享物流",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"white"
   }
 }

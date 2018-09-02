@@ -16,7 +16,7 @@ Page({
     // 选取图片提示
     actionText: "拍照/相册",
     // 提交按钮的背景色，未勾选类型时无颜色
-    btnBgc: "",
+    btnBgc: "#191970",
   },
 // 页面加载
   onLoad:function(options){

@@ -19,7 +19,7 @@
 	border-radius: 6rpx;
 	line-height: 100rpx;
 	text-align: center;
-	border: 2rpx solid #b9dd08;
+	border: 2rpx solid #191970;
 }
 .choose-grids .grid:first-child,
 .choose-grids .grid:nth-of-type(2){

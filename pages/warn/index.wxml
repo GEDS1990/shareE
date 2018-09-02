@@ -23,7 +23,7 @@
             <input bindinput="descChange" name="desc" placeholder="备注" />            
         </view>
         <view class="action-submit">
-            <button class="submit-btn" type="default" loading="{{loading}}" bindtap="formSubmit" style="background-color: {{btnBgc}}">提交</button>
+            <button class="submit-btn" type="default" loading="{{loading}}" bindtap="formSubmit" style="background-color: {{btnBgc}};color:#ffffff">提交</button>
         </view>
     </view>
 </view>
