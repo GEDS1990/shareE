@@ -7,24 +7,60 @@
         <text>{{userInfo.nickName}}</text>
     </view>
     <block wx:if="{{userInfo.avatarUrl != ''}}">
-    <view class="my-wallet tapbar" bindtap="movetoTalk">
-        <text>大喇叭</text>
-        <text>></text>
-    </view>
-    <view class="my-wallet tapbar" bindtap="movetoWallet">
-        <text>我的钱包</text>
-        <text>></text>
+    <view class="my-wallet tapbar" bindtap="movetoHorn">
+        <icon class="iconfont icon-duihuaxinxi"><text class="my-text-ico" >大喇叭</text></icon>
+        <icon class="iconfont icon-youjiantou"></icon>
     </view>
     <view class="my-wallet tapbar" bindtap="movetoNearOrders">
-        <text>附近任务</text>
-        <text>></text>
+        <icon class="iconfont icon-sousuo"><text class="my-text-ico">附近任务</text></icon>
+        <icon class="iconfont icon-youjiantou"></icon>
     </view>
+    <view class="my-wallet tapbar" bindtap="movetoWallet">
+        <icon class="iconfont icon-xinfeng"><text class="my-text-ico">我的钱包</text></icon>
+        <icon class="iconfont icon-youjiantou"></icon>
+    </view>
+    <view class="my-wallet tapbar" bindtap="movetofbtask">
+        <icon class="iconfont icon-erweima"><text class="my-text-ico">发布记录</text></icon>
+        <icon class="iconfont icon-youjiantou"></icon>
+    </view>
+    <view class="my-wallet tapbar" bindtap="movetoJiedan">
+        <icon class="iconfont icon-fenleiorguangchangorqita"><text class="my-text-ico">接单记录</text></icon>
+        <icon class="iconfont icon-youjiantou"></icon>
+    </view>
+    <view class="my-wallet tapbar" bindtap="movetoAddr">
+        <icon class="iconfont icon-dibiao"><text class="my-text-ico">我的地址</text></icon>
+        <icon class="iconfont icon-youjiantou"></icon>
+    </view> 
     <view class="my-wallet tapbar" bindtap="movetoRecords">
-        <text>我的记录</text>
-        <text>></text>
+        <icon class="iconfont icon-bangzhu"><text class="my-text-ico">关于ShareE</text></icon>
+        <icon class="iconfont icon-youjiantou"></icon>
     </view>
     </block>
-     <button bindtap="bindAction" class="btn-login" hover-class="gray" type="{{bType}}" >{{actionText}}</button> 
-
+<!-- <view>
+  <icon class="iconfont icon-zhiding"></icon>
+  <icon class="iconfont icon-zuojiantou"></icon>
+  <icon class="iconfont icon-youjiantou"></icon>
+  <icon class="iconfont icon-shangjiantou"></icon>
+  <icon class="iconfont icon-xiajiantou1"></icon>
+  <icon class="iconfont icon-xiajiantou"></icon>
+</view>
+<view>
+  <icon class="iconfont icon-gengduotianchong"></icon>
+  <icon class="iconfont icon-erweima"></icon>
+  <icon class="iconfont icon-fenleiorguangchangorqita"></icon>
+  <icon class="iconfont icon-dibiao"></icon>
+  <icon class="iconfont icon-bangzhu"></icon>
+  <icon class="iconfont icon-xinfeng"></icon>
+</view>
+<view>
+  <icon class="iconfont icon-duihuaxinxi"></icon>
+  <icon class="iconfont icon-sousuo"></icon>
+  <icon class="iconfont icon-shouye"></icon>
+  <icon class="iconfont icon-shezhi"></icon>
+  <icon class="iconfont icon-shanchu"></icon>
+  <icon class="iconfont icon-dianhua"></icon>
+</view> -->
+        <button bindtap="bindAction" class="btn-login" hover-class="gray" type="{{bType}}" >{{actionText}}</button>
     <!-- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">{{actionText}}</button> -->
+    <!-- <button open-type="getUserInfo" type="{{bType}}" lang="zh_CN" bindgetuserinfo="onGotUserInfo">{{actionText}}</button> -->
 </view>

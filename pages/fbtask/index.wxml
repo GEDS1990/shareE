@@ -1,0 +1,35 @@
+<!--pages/fbtask/index.wxml-->
+<view class="container">
+    <view class="choose">
+        <view class="title">发布包裹记录</view> 
+        <view class="action">
+          <view class="action-input">
+              <input bindinput="search" name="search" placeholder="搜索条件" />   
+              <!-- <button class="action-search" type="default" bindtap="formSubmit" style="background-color: {{btnBgc}};color:#ffffff">确认接单</button>           -->
+          </view>
+        </view>
+        <checkbox-group class="choose-grids">
+            <block wx:for="{{itemsValue}}" wx:key="{{item}}">
+                <view bindtap="selectChange" class="grid" data-gid="{{item.goodsId}}" data-title="{{item.title}}" data-money="{{item.money}}">
+                  <view class="grid1">
+                      <image src="{{item.iconPath}}"></image>
+                    </view>
+                    <view class="grid2">
+                      <text>\n包裹：{{item.title}}</text>   
+                      <text>\n状态：{{item.status}}</text>  
+                      <text>\n发布时间：{{item.createtime}}</text>    
+                      <text>\n奖励金：{{item.money}}e币</text>                  
+                      <text>\n紧急电话：{{item.warningTel}}</text>                  
+                    </view>
+                </view>            
+            </block>
+        </checkbox-group>   
+        <!-- <view class="action">
+            <view class="action-submit">
+                <button class="submit-btn" type="default" loading="{{loading}}" bindtap="formSubmit" style="background-color: {{btnBgc}};color:#ffffff">确认接单</button>
+            </view>
+        </view>      -->
+    </view>
+    
+</view>
+

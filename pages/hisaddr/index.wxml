@@ -1,0 +1,23 @@
+<!--pages/warn/index.wxml-->
+<view class="container">
+    <view class="choose">
+        <view class="title" bindtap="movetoAddAddr">
+            <text>添加地址</text>
+        </view>
+        <checkbox-group bindchange="checkboxChange" class="choose-grids">
+            <block wx:for="{{itemsValue}}" wx:key="{{item}}">              
+              <view bindtap="formSubmit" class="tapbar" data-start="{{item.address}}" 
+              data-personid="{{item.name}}" 
+              data-tel="{{item.tel}}">
+                  <icon class="iconfont icon-dibiao"><text class="my-text-ico">{{item.address}}</text></icon>
+                  <icon class="iconfont icon-youjiantou"></icon>
+                  <view class="view1">
+                    <text class="address-info-text">{{item.name}}</text>
+                    <text class="address-info-text">{{item.tel}}</text>
+                  </view>
+              </view>
+            </block>
+        </checkbox-group>        
+    </view>
+</view>
+

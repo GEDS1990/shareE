@@ -18,7 +18,8 @@
 	margin-bottom: 30rpx;
 }
 .btn-login{
-	position: absolute;
+	display: block;
+	top: 10rpx;
 	bottom: 60rpx;
 	width: 90%;
 	left: 50%;
@@ -26,4 +27,8 @@
 }
 .gray{
 	background-color: #ccc;
+}
+.my-text-ico{
+	text-align: left;
+	margin-left: 40rpx;
 }

@@ -5,7 +5,7 @@
             <text class="overage-header">我的余额（元）</text>
         </view>
         <view>
-            <text class="overage-amount">{{overage}}</text>
+            <text class="overage-amount">{{money}}</text>
         </view>
         <view>
             <text bindtap="overageDesc" class="overage-desc">余额说明</text>
@@ -13,15 +13,15 @@
     </view>
     <button bindtap="movetoCharge" class="btn-charge">推荐好友获得e币</button>
     <view bindtap="showTicket" class="my-ticket tapbar">
-        <text>我的抵用券</text>
+        <text>优惠券</text>
         <text><text class="c-g">{{ticket}}张</text>></text>
     </view>
     <view bindtap="showDeposit" class="my-deposit tapbar">
-        <text>我的押金</text>
-        <text><text class="c-y">99元，押金退款</text>></text>
+        <text>E零钱提现</text>
+        <text><text class="c-y">{{money}}元</text>></text>
     </view>
-    <view bindtap="showInvcode" class="my-invcode tapbar">
-        <text>关于ShareE</text>
-        <text>></text>
-    </view>
+    <!-- <view bindtap="showCaipiao" class="my-deposit tapbar">
+        <text>大乐透</text>
+        <text><text class="c-y"></text>></text>
+    </view> -->
 </view>

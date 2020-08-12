@@ -18,6 +18,32 @@ Page({
     // 提交按钮的背景色，未勾选类型时无颜色
     btnBgc: "#191970",
   },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    // 4.请求服务器，显示接单记录
+    wx.request({
+      url: app.apiUrl + '/mapControl/getAllMapLacation',
+      // url:'app.apiUrl+/mapControl/getAllMapLacation',
+      data: {},
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      success: (res) => {
+        console.log("res size:" + res.data.length);
+        this.setData({
+          itemsValue: res.data
+        })
+      },
+      fail: function (res) {
+        // fail
+        console.log("fail");
+      },
+      complete: function (res) {
+        // complete
+        console.log("complete");
+      }
+    })
+  },
 // 页面加载
   onLoad:function(options){
     wx.setNavigationBarTitle({
@@ -25,19 +51,14 @@ Page({
     }),
       // 4.请求服务器，显示接单记录
       wx.request({
-      // url: 'https://www.easy-mock.com/mock/5b0166ffd76e6e2b404beb58/example/jiedanjilu',
-      url:'https://www.shzhyun.com/mapControl/getLoc',
-        data: {
-          curLatitude: app.globalData.curlatitude,
-          curLongitude: app.globalData.curlongitude,
-          range: 0
-        },
+      url: app.apiUrl +'/mapControl/getAllMapLacation',
+      // url:'app.apiUrl+/mapControl/getAllMapLacation',
+        data: {},
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         success: (res) => {
           console.log("res size:" + res.data.length);
           this.setData({
-            itemsValue: res.data
-            
+            itemsValue: res.data            
           })
         },
         fail: function (res) {
@@ -50,19 +71,33 @@ Page({
         }
       })
   },
-// 勾选故障类型，获取类型值存入checkboxValue
-  checkboxChange: function(e){
-    let _values = e.detail.value;
-    if(_values.length == 0){
-      this.setData({
-        btnBgc: ""
-      })
-    }else{
-      this.setData({
-        checkboxValue: _values,
-        btnBgc: "#b9dd08"
-      })
-    }   
+// 
+  selectChange: function(e){
+    var gid = e.currentTarget.dataset.gid;
+    console.log("gid:" + gid); 
+    wx.showModal({
+      title: "随e带接单确认",
+      content: e.currentTarget.dataset.title + ":" + e.currentTarget.dataset.money + " e币",
+      showCancel: true,
+      confirmText: "确定",
+      success: function (res) {
+        //更新gid对应包裹状态
+        // TODO
+        //插件接单人信息表
+        // TODO
+        //跳转回首页
+        wx.redirectTo({
+          url: '../index/index',
+          success: function (res) {
+            wx.showToast({
+              title: '成功',
+              icon: '成功',
+              duration: 2000
+            })
+          }
+        })
+      }
+    });
   },
 // 输入单车编号，存入inputValue
   numberChange: function(e){
@@ -82,11 +117,37 @@ Page({
       }
     })
   },
+  search: function(e){
+    console.log("search:" + e.detail.value);
+    wx.request({
+      url: app.apiUrl + '/mapControl/getAllMapLacation',
+      // url: 'https://www.easy-mock.com/mock/59098d007a878d73716e966f/ShareEdata/msg',
+      data: {
+        kwd: e.detail.value,
+      },
+      method: 'POST', // POST
+      success: (res) => {
+        console.log("res size:" + res.data.length);
+        this.setData({
+          itemsValue: res.data
+        })
+      },
+      fail: function (res) {
+        // fail
+        console.log("fail");
+      },
+      complete: function (res) {
+        // complete
+        console.log("complete");
+      }
+    })
+  },
 // 提交到服务器
   formSubmit: function(e){
     if(this.data.picUrls.length > 0 && this.data.checkboxValue.length> 0){
       wx.request({
-        url: 'https://www.easy-mock.com/mock/59098d007a878d73716e966f/ShareEdata/msg',
+        url: app.apiUrl +'/mapControl/getAllMapLacation',
+        // url: 'https://www.easy-mock.com/mock/59098d007a878d73716e966f/ShareEdata/msg',
         data: {
           // picUrls: this.data.picUrls,
           // inputValue: this.data.inputValue,

@@ -13,10 +13,31 @@ App({
     targetlatitude: "",
     targetlongitude: "",
     targetaddress: "",
-    targetname: ""
+    targetname: "",
+    inputValue: {
+      fromAddress: "",
+      fromTel: "",
+      fromName: "",
+      toAddress: "",
+      toTel: "",
+      toName: "",
+      comment: "",
+      warningTel: "",
+      money: ""
+    },
   },
   userInfo: {
     avatarUrl: "",
-    nickName: ""
-  }
+    nickName: "",
+    country: "",
+    province: "",
+    city: "",
+    gender: "",
+    language: "",
+  },
+  // apiUrl: "http://127.0.0.1:8888",
+  apiUrl: "https://www.shzhyun.com",
+  // wssUrl: "ws://localhost:8888",
+  // wssUrl: "ws://47.99.89.71:8888",
+  wssUrl: "wss://www.shzhyun.com",
 })

@@ -1,4 +1,5 @@
 // pages/wallet/index.js
+var app = getApp()
 Page({
   data:{
     overage: 0,
@@ -12,25 +13,38 @@ Page({
   },
 // 页面加载完成，更新本地存储的overage
   onReady:function(){
-     wx.getStorage({
-      key: 'overage',
+    //  wx.getStorage({
+    //   key: 'overage',
+    //   success: (res) => {
+    //     this.setData({
+    //       overage: res.data.overage
+    //     })
+    //   }
+    // })
+
+    // 4.请求服务器，
+    wx.request({
+      url: app.apiUrl + '/mapControl/getMoney',
+      data: { "avatarUrl": app.userInfo.avatarUrl },
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
       success: (res) => {
         this.setData({
-          overage: res.data.overage
+          money: res.data
         })
       }
-    })
+    });
   },
 // 页面显示完成，获取本地存储的overage
   onShow:function(){
-    wx.getStorage({
-      key: 'overage',
-      success: (res) => {
-        this.setData({
-          overage: res.data.overage
-        })
-      }
-    }) 
+    // wx.getStorage({
+    //   key: 'overage',
+    //   success: (res) => {
+    //     this.setData({
+    //       overage: res.data.overage
+    //     })
+    //   }
+    // }) 
   },
 // 余额说明
   overageDesc: function(){
@@ -52,38 +66,35 @@ Page({
   showTicket: function(){
     wx.showModal({
       title: "",
-      content: "你没有用车券了",
+      content: "你没有优惠券了",
       showCancel: false,
       confirmText: "好吧",
+    })
+  },
+  //彩票
+  showCaipiao: function(){
+    wx.navigateTo({
+      url: '../caipiao/index'
     })
   },
 // 押金退还
   showDeposit: function(){
     wx.showModal({
       title: "",
-      content: "押金会立即退回，退款后，您将不能使用ShareE共享物流确认要进行此退款吗？",
-      cancelText: "继续使用",
-      cancelColor: "#b9dd08",
-      confirmText: "押金退款",
+      content: "e币会立即提现",
+      cancelText: "确认",
+      cancelColor: "#191970",
+      confirmText: "取消",
       confirmColor: "#ccc",
       success: (res) => {
         if(res.confirm){
           wx.showToast({
-            title: "退款成功",
+            title: "提现成功",
             icon: "success",
             duration: 2000
           })
         }
       }
-    })
-  },
-// 关于ShareE
-  showInvcode: function(){
-    wx.showModal({
-      title: "ShareE共享物流",
-      content: "微信服务号：ShareE,网址：www.shzhyun.com",
-      showCancel: false,
-      confirmText: "去中心化共享物流平台"
     })
   }
 })

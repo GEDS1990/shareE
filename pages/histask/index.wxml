@@ -1,0 +1,32 @@
+<!--pages/warn/index.wxml-->
+<view class="container">
+    <view class="choose">
+        <view class="title">我的接单记录</view> 
+        <view class="action">
+            <!-- <view class="action-submit">
+                <button class="submit-btn" type="default" loading="{{loading}}" bindtap="formSubmit" style="background-color: {{btnBgc}}">提交</button>
+            </view> -->
+        </view>
+        <checkbox-group bindchange="checkboxChange" class="choose-grids">
+            <block wx:for="{{jddata}}" wx:key="{{item}}">
+                <view class="grid">
+                  <view class="grid1">
+                    <image src="{{item.iconPath}}"></image>
+                  </view>
+                  <view class="grid2">
+                    <text>\n目的地：{{item.toAddress}}</text> 
+                    <text>\n出发地：{{item.fromAddress}}</text> 
+                    <text>\n备注：{{item.comment}}</text>        
+                    <text>\n奖励金：{{item.money}}</text>
+                    <text>\n派单人：{{item.nickName}}</text>                    
+                    <text>\n联系电话：{{item.warningTel}}</text>                 
+                    <text>\n状态：{{item.status}}</text>              
+                    <text>\n</text>
+                  </view>
+                </view>
+            </block>
+        </checkbox-group>        
+    </view>
+    
+</view>
+

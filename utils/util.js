@@ -15,7 +15,14 @@ function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-
+//用于生成uuid
+function S4() {
+  return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+}
+function uuid() {
+  return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+}
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  uuid: uuid,
 }

@@ -1,21 +1,32 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/warn/index",
-    "pages/scanresult/index",
+    "pages/deploy/index",
     "pages/billing/index",
     "pages/my/index",
     "pages/wallet/index",
     "pages/Records/index",
     "pages/charge/index",
-    "pages/jiedan/index",
+    "pages/histask/index",
     "pages/nearorders/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/hisaddr/index",
+    "pages/hisaddr/add/index",
+    "pages/horn/index",
+    "pages/fbtask/index",
+    "pages/caipiao/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#191970",
     "navigationBarTitleText": "ShareE 共享物流",
-    "navigationBarTextStyle":"white"
-  }
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -20,22 +20,22 @@ Page({
       {
         checked: false,
         value: "包裹丢失",
-        color: "#b9dd08"
+        color: "#191970"
       },
       {
         checked: false,
         value: "包裹缺损",
-        color: "#b9dd08"
+        color: "#191970"
       },
       {
         checked: false,
         value: "包裹被拆",
-        color: "#b9dd08"
+        color: "#191970"
       },
       {
         checked: false,
         value: "其他问题",
-        color: "#b9dd08"
+        color: "#191970"
       }
     ]
   },
@@ -55,7 +55,7 @@ Page({
     }else{
       this.setData({
         checkboxValue: _values,
-        btnBgc: "#b9dd08"
+        btnBgc: "#191970"
       })
     }   
   },
@@ -81,13 +81,13 @@ Page({
   formSubmit: function(e){
     if(this.data.picUrls.length > 0 && this.data.checkboxValue.length> 0){
       wx.request({
-        url: 'https://www.easy-mock.com/mock/59098d007a878d73716e966f/ShareEdata/msg',
+        url: app.apiUrl + '/mapControl/getAllMapLacation',
         data: {
           // picUrls: this.data.picUrls,
           // inputValue: this.data.inputValue,
           // checkboxValue: this.data.checkboxValue
         },
-        method: 'get', // POST
+        method: 'POST', // POST
         // header: {}, // 设置请求的 header
         success: function(res){
           wx.showToast({
@@ -99,18 +99,17 @@ Page({
       })
     }else{
       wx.showModal({
-        title: "请填写反馈信息",
-        content: '看什么看，赶快填反馈信息，削你啊',
-        confirmText: "我我我填",
-        cancelText: "劳资不填",
+        title: "确认反馈信息",
+        content: '您的反馈我们会尽快安排处理',
+        confirmText: "确定",
+        cancelText: "取消",
         success: (res) => {
           if(res.confirm){
             // 继续填
-          }else{
-            console.log("back")
             wx.navigateBack({
               delta: 1 // 回退前 delta(默认为1) 页面
             })
+          }else{
           }
         }
       })
@@ -151,6 +150,14 @@ Page({
     _picUrls.splice(index,1);
     this.setData({
       picUrls: _picUrls
+    })
+  },
+  sendDYMsg: function(e) {
+    wx.requestSubscribeMessage({
+      tmplIds: ['7qfcpKXAOAdSTT9S6aZvhX81rWekhthGc6NwQKWZonM'],
+      success(res) {
+        console.log("可以给用户推送一条中奖通知了。。。");
+      }
     })
   }
 })

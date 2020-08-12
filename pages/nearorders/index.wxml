@@ -3,28 +3,30 @@
     <view class="choose">
         <view class="title">附近可接包裹</view> 
         <view class="action">
-            <view class="action-submit">
-                <button class="submit-btn" type="default" loading="{{loading}}" bindtap="formSubmit" style="background-color: {{btnBgc}};color:#ffffff">确认接单</button>
-            </view>
+          <view class="action-input">
+              <input bindinput="search" name="search" placeholder="搜索条件" />   
+              <!-- <button class="action-search" type="default" bindtap="formSubmit" style="background-color: {{btnBgc}};color:#ffffff">确认接单</button>           -->
+          </view>
         </view>
-        <checkbox-group bindchange="checkboxChange" class="choose-grids">
+        <checkbox-group class="choose-grids">
             <block wx:for="{{itemsValue}}" wx:key="{{item}}">
-                <view class="grid">
-                    <checkbox value="{{item.uuid}}" checked="{{item.checked}}" color="{{item.color}}" />
-                    <text>\n</text>
-                    <a>{{item.createtime}}</a> -> <a>{{item.updatetime}}</a>
-                    <text>\n包裹：{{item.title}}</text>        
-                    <text>\n奖励金：{{item.money}}</text>
-                    <text>\n派单人：{{item.userId}}</text>                    
-                    <text>\n联系电话：{{item.Tel}}</text>
-                </view>             
+                <view bindtap="selectChange" class="grid" data-gid="{{item.goodsId}}" data-title="{{item.title}}" data-money="{{item.money}}">
+                    <!-- <image src="{{item.iconPath}}" class="item-image"></image> -->
+                    <text>\n包裹：{{item.title}}</text>   
+                    <text>\n状态：{{item.status}}</text>  
+                    <text>\n发布时间：{{item.createtime}}</text>    
+                    <text>\n奖励金：{{item.money}}e币</text>
+                    <!-- <text>\n派单人：{{item.userId}}</text>                     -->
+                    <text>\n紧急电话：{{item.warningTel}}</text>                   
+                    <text>\n<a href="#">捎e下</a></text>                    
+                </view>            
             </block>
         </checkbox-group>   
-        <view class="action">
+        <!-- <view class="action">
             <view class="action-submit">
                 <button class="submit-btn" type="default" loading="{{loading}}" bindtap="formSubmit" style="background-color: {{btnBgc}};color:#ffffff">确认接单</button>
             </view>
-        </view>     
+        </view>      -->
     </view>
     
 </view>

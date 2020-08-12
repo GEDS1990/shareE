@@ -1,0 +1,34 @@
+<!--pages/deploy/index.wxml-->
+<view class="container">
+    <view class="action">
+      <view bindtap="movetoHisAddrFrom" class="my-ticket tapbar">
+          <input bindinput="fromAddressChange" class="input-address" value="{{inputValue.fromAddress}}" placeholder="选择出发地" />
+          <!-- <text><text class="c-y">手动选择</text></text> -->
+      </view>
+      <view bindtap="movetoHisAddrTo" class="my-ticket tapbar">
+          <input bindinput="toAddressChange" class="input-address" value="{{inputValue.toAddress}}" placeholder="选择目的地" />
+          <!-- <text><text class="c-y">手动选择</text></text> -->
+      </view>
+    </view>
+    <!-- <map id="ShareEMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" bindregionchange="bindregionchange" polyline="{{polyline}}" controls="{{controls}}" bindmarkertap="bindmarkertap"  bindcontroltap="bindcontroltap" show-location/> -->
+    <view class="action">
+        <view class="title">拍摄宝贝及周围环境，让骑士了解您的宝贝</view>
+        <view class="action-photo">
+        <block wx:for="{{picUrls}}" wx:key="{{item}}" wx:index="{{index}}">
+            <image src="{{item}}"><icon type="cancel" data-index="{{index}}" color="red" size="18" class ="del" bindtap="delPic" /></image>
+        </block>
+            <text class="add" bindtap="bindCamera">{{actionText}}</text>
+        </view>
+        <view class="action-input">
+            <input bindinput="titleChange" name="title" placeholder="标题" />   
+            <input bindinput="descChange" name="comment" placeholder="备注信息" />    
+            <input bindinput="telToChange" name="warningTel" placeholder="紧急联系电话" />    
+            <input bindinput="moneyChange" name="money" placeholder="奖励金(E币)" />            
+        </view>
+        <view class="action-submit">
+            <button class="submit-btn" type="default" loading="{{loading}}" bindtap="formSubmit" style="background-color: {{btnBgc}};color: #fff;">发布任务</button>
+            <view class="warning">不建议使用平台运输贵重物品！</view>
+        </view>
+    </view>
+</view>
+

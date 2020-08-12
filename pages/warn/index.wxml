@@ -24,7 +24,9 @@
         </view>
         <view class="action-submit">
             <button class="submit-btn" type="default" loading="{{loading}}" bindtap="formSubmit" style="background-color: {{btnBgc}};color:#ffffff">提交</button>
+            <button type="default" bindtap="sendDYMsg">订阅消息</button>
         </view>
+        
     </view>
 </view>
 
